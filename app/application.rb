@@ -20,9 +20,9 @@ class Application
       else
         @@cart.each do |item|
           resp.write "#{item}\n"
-        end
+      end
     end
-elsif req.path.match(/add/)
+    elsif req.path.match(/add/)
       search_term = req.params["item"]
       if @@items.include?(search_term)
         @@cart << search_term
@@ -34,11 +34,11 @@ elsif req.path.match(/add/)
       resp.write "Path Not Found"
     end
 
-    resp.finish
-  end
+      resp.finish
+    end
 
-  def handle_search(search_term)
-    if @@items.include?(search_term)
+    def handle_search(search_term)
+      if @@items.include?(search_term)
       return "#{search_term} is one of our items"
     else
       return "Couldn't find #{search_term}"
